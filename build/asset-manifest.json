@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.18150a86.css",
+    "main.js": "/static/js/main.150cbd07.js",
+    "static/media/voucher-screen.png": "/static/media/voucher-screen.9d1aa8c32a6d15fdccc6.png",
+    "static/media/team.jpeg": "/static/media/team.a708a6ac966ad6965df9.jpeg",
+    "static/media/voucher-image.png": "/static/media/voucher-image.4a6d47fab3dc0b5362a0.png",
+    "static/media/Roboto-Medium.ttf": "/static/media/Roboto-Medium.9c2fdc31af0bd24583c8.ttf",
+    "static/media/QRcode.png": "/static/media/QRcode.88c171d063c4cc399c3a.png",
+    "static/media/logo-new.svg": "/static/media/logo-new.b32790c6cf07707e509be878c8f8ac97.svg",
+    "static/media/BebasNeue-Regular.ttf": "/static/media/BebasNeue-Regular.12e3683f9192436a7be8.ttf",
+    "static/media/old-logo.png": "/static/media/old-logo.2b22b4b7e32ccb20a080.png",
+    "static/media/instagram.svg": "/static/media/instagram.e6ddb35e803fc566d6be84b78c34db78.svg",
+    "static/media/stripe.svg": "/static/media/stripe.86add69d6a88f2ce6f5e745cc6636468.svg",
+    "static/media/calendar.svg": "/static/media/calendar.f59123bc9893f5e6dae8.svg",
+    "index.html": "/index.html",
+    "static/media/time.svg": "/static/media/time.c14136b269869cf75696.svg",
+    "static/media/cross.svg": "/static/media/cross.318471fd27e696a874de4a5d549f93bd.svg",
+    "static/media/facebook.svg": "/static/media/facebook.c9115a8f75a4ac0d1e07dbb98decfed8.svg",
+    "static/media/arrow-left.svg": "/static/media/arrow-left.72e467d70ad3121a06d7dc946b184e52.svg",
+    "static/media/dropdown.svg": "/static/media/dropdown.7ab9816ab2a8aa870aa352cb35d41b89.svg",
+    "static/media/logout.svg": "/static/media/logout.d58e270cf24bfa7436b5fa213007cbe4.svg",
+    "static/media/cross-icon.svg": "/static/media/cross-icon.c4c286b9e834deeb8e46e41cca776b64.svg",
+    "static/media/checkmark.svg": "/static/media/checkmark.6681b6132a8790445a584a7b49805850.svg",
+    "main.18150a86.css.map": "/static/css/main.18150a86.css.map",
+    "main.150cbd07.js.map": "/static/js/main.150cbd07.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18150a86.css",
+    "static/js/main.150cbd07.js"
+  ]
+}
