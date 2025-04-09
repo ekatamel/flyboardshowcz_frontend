@@ -1,5 +1,4 @@
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
-import { AccordionButton, AccordionIcon } from '@chakra-ui/react'
 import { createColumnHelper } from '@tanstack/react-table'
 import checkmark from 'assets/images/checkmark.svg'
 import crossIcon from 'assets/images/cross-icon.svg'
@@ -65,18 +64,6 @@ export const getAdminVouchersTableColumns = () => {
             style={getPillStyles(info.getValue() as VoucherStatus)}
             className='font-normal h-30'
           />
-        )
-      },
-    }),
-    columnHelper.display({
-      id: 'AccordionButton',
-      header: '',
-      size: 0,
-      cell: () => {
-        return (
-          <AccordionButton>
-            <AccordionIcon />
-          </AccordionButton>
         )
       },
     }),
@@ -337,18 +324,6 @@ export const getAvailabilityTableColumns = () => {
       size: 300,
       cell: info => <div>{info.getValue()}</div>,
     }),
-    columnHelper.display({
-      id: 'AccordionButton',
-      header: '',
-      size: 0,
-      cell: () => {
-        return (
-          <AccordionButton>
-            <AccordionIcon />
-          </AccordionButton>
-        )
-      },
-    }),
   ]
 }
 
@@ -359,7 +334,6 @@ export const getReservationsTableColumns = () => {
     columnHelper.accessor('used_by', {
       header: 'Zákazník',
       enableSorting: true,
-      size: 300,
       cell: info => {
         const customer = info.row.original.used_by
         if (customer)
@@ -370,7 +344,6 @@ export const getReservationsTableColumns = () => {
     columnHelper.accessor('lesson_length', {
       header: 'Min',
       enableSorting: true,
-      size: 300,
       cell: info => {
         const lessonLength = info.getValue()
         const extras = info.row.original.extras
@@ -385,7 +358,6 @@ export const getReservationsTableColumns = () => {
     columnHelper.accessor('extras', {
       header: 'Video',
       enableSorting: true,
-      size: 300,
       cell: info => {
         const extras = info.row.original.extras
         const hasVideo = !!extras?.find(extra => extra.type === 'video')
@@ -400,13 +372,11 @@ export const getReservationsTableColumns = () => {
     columnHelper.accessor('reservation.time', {
       header: 'Čas',
       enableSorting: true,
-      size: 300,
       cell: info => <div>{info.getValue()}</div>,
     }),
     columnHelper.accessor('status', {
       header: 'Stav',
       enableSorting: true,
-      size: 300,
       cell: info => {
         const reservationStatus = info.getValue()
         return <div>{ReservationState[reservationStatus]}</div>
@@ -415,7 +385,6 @@ export const getReservationsTableColumns = () => {
     columnHelper.accessor('merch', {
       header: 'Merch',
       enableSorting: true,
-      size: 300,
       cell: info => {
         const merch = info.row.original.merch
         return (
@@ -423,18 +392,6 @@ export const getReservationsTableColumns = () => {
             src={merch && merch.length > 0 ? checkmark : crossIcon}
             alt='Merch available icon'
           />
-        )
-      },
-    }),
-    columnHelper.display({
-      id: 'AccordionButton',
-      header: '',
-      size: 0,
-      cell: () => {
-        return (
-          <AccordionButton>
-            <AccordionIcon />
-          </AccordionButton>
         )
       },
     }),
@@ -516,7 +473,6 @@ export const getAdminLessonsTableColumns = (
     columnHelper.display({
       id: 'AccordionButton',
       header: '',
-      size: 0,
       cell: info => {
         return (
           <div className='flex gap-20 items-center justify-end'>

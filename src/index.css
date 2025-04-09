@@ -245,3 +245,7 @@ input[type='time']::-webkit-calendar-picker-indicator {
   background: url('./assets/images/time.svg') no-repeat;
   border-width: thin;
 }
+
+.chakra-collapse {
+  overflow: visible !important;
+}

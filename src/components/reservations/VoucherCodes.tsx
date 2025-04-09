@@ -111,7 +111,7 @@ export const VoucherCodes = () => {
         >
           <Table className='lg:table'>
             <TableHead
-              data={['Kód voucheru', 'Typ lekce', 'Doba trvání', 'Portál']}
+              data={['Kód voucheru', 'Typ lekce', 'Doba trvání', 'Portál', '']}
             />
             <Tbody>
               {values.vouchers.map(voucher => {

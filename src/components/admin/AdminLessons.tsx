@@ -141,7 +141,6 @@ export const AdminLessons = () => {
           data={sortedLessons}
           columns={columns}
           isFilterable={true}
-          isExpandable={true}
         />
       )}
       <Modal isOpen={isOpen} onClose={onEditLessonClose} size={'2xl'}>

@@ -1,29 +1,20 @@
 import { Td, Tr } from '@chakra-ui/react'
 import cross from 'assets/images/cross.svg'
-import { useState } from 'react'
 
 interface BasketTableRowProps {
   padding?: string
-  isHover?: boolean
   onDelete?: () => void
   className?: string
   data: (string | number | JSX.Element)[]
 }
 export const TableRow = ({
   padding = '16px 24px',
-  isHover = true,
   onDelete,
   className,
   data,
 }: BasketTableRowProps) => {
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
-    <Tr
-      onMouseEnter={() => isHover && setIsHovered(true)}
-      onMouseLeave={() => isHover && setIsHovered(false)}
-      className={`relative font-title ${className}`}
-    >
+    <Tr className={`relative font-title ${className}`}>
       {data.map((cell, index) => {
         return (
           <Td
@@ -42,13 +33,15 @@ export const TableRow = ({
           </Td>
         )
       })}
-      {onDelete && isHovered && (
-        <img
-          src={cross}
-          alt='Cross icon'
-          className='absolute right-6 top-14 cursor-pointer'
-          onClick={onDelete}
-        />
+      {onDelete && (
+        <Td border={'none'} padding={'0 10px'}>
+          <img
+            src={cross}
+            alt='Cross icon'
+            className='cursor-pointer'
+            onClick={onDelete}
+          />
+        </Td>
       )}
     </Tr>
   )

@@ -173,7 +173,7 @@ export const AdminReservations = () => {
         onSelect={date => setSelectedDay(date)}
       />
 
-      {filteredReservations && (
+      {filteredReservations && filteredReservations.length > 0 && (
         <AdminTable
           data={filteredReservations}
           columns={columns}

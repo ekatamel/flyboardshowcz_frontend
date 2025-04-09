@@ -84,16 +84,16 @@ export const DateLocationSelector = () => {
       middleComponent={<DateTimeInfo />}
       isNextDisabled={!isNextStepEnabled}
     >
-      <p className='mt-20 flex flex-col px-20 text-center text-14 text-white sm:px-44 md:px-80 lg:mt-38 lg:px-100 lg:text-16 xl:mt-10 xl:px-0'>
+      <p className='mt-20 px-20 text-center text-14 text-white sm:px-44 md:px-80 lg:mt-38 lg:px-100 lg:text-16 xl:mt-10 xl:px-0'>
         Vyberte LOKALITU, DATUM I ČAS. Kliknutím zažluťte všechna pole.
-        <div className='mt-4'>
-          <span className='bg-white p-2 text-black'>Bílá pole</span> = volné
-          termíny / neoznačené lokality.{' '}
-          <span className='bg-yellow p-2 text-black'>Žlutá pole</span> = zvolené
-          termíny. <span className='border border-white p-2'>Černá pole</span> =
-          nelétáme / je již plno.
-        </div>
       </p>
+      <div className='text-center text-white sm:px-44 md:px-80 lg:px-100 lg:text-16 xl:px-0 text-14'>
+        <span className='bg-white p-2 text-black'>Bílá pole</span> = volné
+        termíny / neoznačené lokality.{' '}
+        <span className='bg-yellow p-2 text-black'>Žlutá pole</span> = zvolené
+        termíny. <span className='border border-white p-2'>Černá pole</span> =
+        nelétáme / je již plno.
+      </div>
 
       <h2 className='mt-20 text-center font-title text-20 text-white'>
         Dostupné lokality
