@@ -448,7 +448,7 @@ export const getLocationsInitialData = (branch: Branch) => {
     address: branch.address,
     lat: branch.lat,
     long: branch.long,
-    map: branch.map,
+    map: branch.map ?? '',
   }
 }
 

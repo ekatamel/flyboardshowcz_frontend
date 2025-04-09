@@ -25,6 +25,16 @@ interface CreateTimeslotModalProps {
   onClose: () => void
 }
 
+const initialValues = {
+  branch_id: '',
+  date: '',
+  start_hour: '',
+  end_hour: '',
+  lunch_start: '',
+  lunch_end: '',
+  scooters: '',
+}
+
 export const CreateTimeslotModal = ({
   isOpen,
   onClose,
@@ -93,7 +103,7 @@ export const CreateTimeslotModal = ({
         <ModalCloseButton />
         <ModalBody>
           <Formik
-            initialValues={{}}
+            initialValues={initialValues}
             onSubmit={() => {}}
             validationSchema={timeslotValidationSchema}
           >
@@ -129,7 +139,6 @@ export const CreateTimeslotModal = ({
                             )}
                             {field.type === 'select' && (
                               <Field
-                                defaultValue={''}
                                 className='w-full h-44 px-8 max-w-169 border bg-black font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-16'
                                 name={fieldName}
                                 as={field.type}

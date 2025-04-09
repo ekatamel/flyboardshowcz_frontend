@@ -15,6 +15,14 @@ import { getToastMessage } from 'utils/utils'
 
 import { Button } from '../shared/Button'
 
+const initialCustomer = {
+  first_name: '',
+  last_name: '',
+  email: '',
+  phone_number: '',
+  instagram: '',
+}
+
 export const VoucherCodes = () => {
   const navigate = useNavigate()
   const { showToast } = useToastMessage()
@@ -34,7 +42,11 @@ export const VoucherCodes = () => {
       if (status === 'success') {
         setFieldValue('vouchers', [
           ...(values.vouchers ?? []),
-          { ...data.voucher, code: data.voucher.voucher_code },
+          {
+            ...data.voucher,
+            code: data.voucher.voucher_code,
+            customer: initialCustomer,
+          },
         ])
         setValue('')
       }

@@ -1,6 +1,5 @@
 import { InputError } from 'components/shared/InputError'
 import { Field, useFormikContext } from 'formik'
-import { ChangeEvent } from 'react'
 import { AdminOrder, ExtrasInfo, FormFields } from 'types/types'
 import { formatPrice } from 'utils/utils'
 
@@ -11,7 +10,7 @@ interface AddExtrasProps {
 }
 
 export const AddExtras = ({ extrasFields, extras }: AddExtrasProps) => {
-  const { setFieldValue, errors, touched } = useFormikContext<AdminOrder>()
+  const { errors, touched } = useFormikContext<AdminOrder>()
 
   const extrasErrors = errors.extras as any
   const extrasTouched = touched.extras as any
@@ -19,11 +18,6 @@ export const AddExtras = ({ extrasFields, extras }: AddExtrasProps) => {
   const filteredExtras = extras?.filter(
     extra => extra.price !== 0 && extra.type !== 'minutes',
   )
-
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const { value } = e.target
-    setFieldValue('extras', { id: Number(value), quantity: 1 })
-  }
 
   return (
     <div className='flex-1 mb-10'>
@@ -38,13 +32,9 @@ export const AddExtras = ({ extrasFields, extras }: AddExtrasProps) => {
                   Video {field.required && '*'}
                 </label>
                 <Field
-                  defaultValue={''}
                   className='w-full h-44 px-8 max-w-169 border bg-black font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-16'
                   name={`extras.${field.name}`}
                   as={field.type}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                    handleChange(e)
-                  }
                 >
                   <option value='' disabled>
                     {field.placeholder}

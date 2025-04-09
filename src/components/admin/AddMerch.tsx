@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { InputError } from 'components/shared/InputError'
 import { Field, useFormikContext } from 'formik'
-import { ChangeEvent } from 'react'
 import { useQuery } from 'react-query'
 import { AdminOrder, FormFields, MerchInfo } from 'types/types'
 import { fetchMerch } from 'utils/requests'
@@ -13,8 +12,7 @@ interface AddMerchProps {
 
 export const AddMerch = ({ merchFields }: AddMerchProps) => {
   const { data: merch } = useQuery<MerchInfo[]>('merch', fetchMerch)
-  const { setFieldValue, values, errors, touched } =
-    useFormikContext<AdminOrder>()
+  const { values, errors, touched } = useFormikContext<AdminOrder>()
 
   const merchErrors = errors.merch as any
   const merchTouched = touched.merch as any
@@ -24,11 +22,6 @@ export const AddMerch = ({ merchFields }: AddMerchProps) => {
   const hasSizes =
     !!selectedMerch?.available_sizes &&
     Object.keys(selectedMerch?.available_sizes).length > 0
-
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>, name: string) => {
-    const { value } = e.target
-    setFieldValue(name, value)
-  }
 
   const filteredMerch = merch?.filter(merch => merch.price !== 0)
 
@@ -53,15 +46,11 @@ export const AddMerch = ({ merchFields }: AddMerchProps) => {
                   {field.label} {field.required && '*'}
                 </label>
                 <Field
-                  defaultValue={''}
                   className={clsx(
                     'w-full h-44 px-8 max-w-169 border bg-black font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-16',
                   )}
                   name={`merch.${field.name}`}
                   as={field.type}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                    handleChange(e, `merch.${field.name}`)
-                  }
                 >
                   <option value='' disabled>
                     {field.placeholder}

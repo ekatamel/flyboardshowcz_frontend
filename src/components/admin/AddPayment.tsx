@@ -27,7 +27,6 @@ export const AddPayment = ({ paymentFields }: AddPaymentProps) => {
                 </label>
                 {field.type === 'select' && (
                   <Field
-                    defaultValue={''}
                     className='w-full h-44 px-8 max-w-169 border bg-black font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-16'
                     name={`payment.${field.name}`}
                     as={field.type}

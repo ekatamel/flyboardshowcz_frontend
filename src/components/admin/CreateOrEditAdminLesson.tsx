@@ -140,7 +140,6 @@ export const CreateOrEditAdminLesson = ({
                     )}
                     {type === 'select' ? (
                       <select
-                        defaultValue={''}
                         className='w-full h-44 px-10 border bg-black font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-16'
                         name={name}
                         value={values[name as 'merchant_id' | 'type_lesson']}

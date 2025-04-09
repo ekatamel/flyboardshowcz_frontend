@@ -26,6 +26,22 @@ import { lessonValidationSchema } from 'utils/validation-schemas'
 
 import { CreateOrEditAdminLesson } from './CreateOrEditAdminLesson'
 
+const initialLesson = {
+  lesson_type_name: '',
+  merchant_id: '',
+  type_lesson: '',
+  length: '',
+  price: '',
+  discount: '',
+  top_level_description: '',
+  bullet_points_description: '',
+  lesson_type_code: '',
+  showtocustomer_from: '',
+  showtocustomer_to: '',
+  validity_voucher_from: '',
+  validity_voucher_to: '',
+}
+
 export const AdminLessons = () => {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null)
 
@@ -74,13 +90,13 @@ export const AdminLessons = () => {
   )
 
   const initialValues = {
-    ...selectedLesson,
-    length: selectedLesson?.product?.length,
+    ...(selectedLesson ?? initialLesson),
+    length: selectedLesson?.product?.length ?? '',
     bullet_points_description: Object.values(
       selectedLesson?.bullet_points_description ?? {},
     ).join(';'),
-    merchant_id: selectedLesson?.product?.merchant_id,
-    type_lesson: selectedLesson?.type_lesson,
+    merchant_id: selectedLesson?.product?.merchant_id ?? '',
+    type_lesson: selectedLesson?.type_lesson ?? '',
   }
 
   const sortedLessons = [...(lessons ?? [])].sort((a, b) => {

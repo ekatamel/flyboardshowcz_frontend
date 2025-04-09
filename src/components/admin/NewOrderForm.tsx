@@ -84,7 +84,7 @@ export const NewOrderForm = ({
         },
       ]
     }
-    if (values.merch && values.purchaseType.merch) {
+    if (values.merch && values.merch.id && values.purchaseType.merch) {
       orderData.order_data.merch = [
         {
           id: Number(values.merch.id),
@@ -96,7 +96,7 @@ export const NewOrderForm = ({
     }
 
     // Pridat validation na to ze branch_id a datum a cas musi byt posilany spolu
-    if (values.extras && values.purchaseType.video) {
+    if (values.extras && values.extras.id && values.purchaseType.video) {
       orderData.order_data.extras = [values.extras, values.minutes].filter(
         Boolean,
       ) as { id: number; quantity: number }[]

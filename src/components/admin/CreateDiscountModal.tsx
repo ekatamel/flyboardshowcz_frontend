@@ -21,6 +21,16 @@ interface CreateDiscountModalProps {
   onClose: () => void
 }
 
+const initialValues = {
+  discount_code: '',
+  discount_type: '',
+  discount_value: '',
+  quantity_stock: '',
+  quantity_remaining: '',
+  valid_from: '',
+  valid_to: '',
+}
+
 export const CreateDiscountModal = ({
   isOpen,
   onClose,
@@ -69,7 +79,7 @@ export const CreateDiscountModal = ({
         <ModalCloseButton />
         <ModalBody>
           <Formik
-            initialValues={{}}
+            initialValues={initialValues}
             onSubmit={() => {}}
             validationSchema={discountValidationSchema}
           >
@@ -101,7 +111,6 @@ export const CreateDiscountModal = ({
                             )}
                             {field.type === 'select' && (
                               <Field
-                                defaultValue={''}
                                 className='w-full h-44 px-8 max-w-169 border bg-black font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-14 lg:text-16'
                                 name={fieldName}
                                 as={field.type}

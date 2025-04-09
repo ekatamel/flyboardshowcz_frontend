@@ -1,8 +1,6 @@
-import { Select } from '@chakra-ui/react'
 import clsx from 'clsx'
 import { InputError } from 'components/shared/InputError'
 import { Field, useFormikContext } from 'formik'
-import { ChangeEvent } from 'react'
 import { useQuery } from 'react-query'
 import { AdminOrder, Branch, FormFields, Lesson } from 'types/types'
 import { fetchBranches, fetchLessonConfiguration } from 'utils/requests'
@@ -18,15 +16,10 @@ export const AddLesson = ({ lessonFields }: AddLessonProps) => {
     fetchLessonConfiguration,
   )
 
-  const { setFieldValue, errors, touched } = useFormikContext<AdminOrder>()
+  const { errors, touched } = useFormikContext<AdminOrder>()
 
   const lessonErrors = errors.lesson as any
   const lessonTouched = touched.lesson as any
-
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>, name: string) => {
-    const { value } = e.target
-    setFieldValue(name, value)
-  }
 
   const filteredLessons = lessons?.filter(lesson => lesson.discount === 0)
 
@@ -50,13 +43,9 @@ export const AddLesson = ({ lessonFields }: AddLessonProps) => {
                 </label>
                 {field.type === 'select' && (
                   <Field
-                    defaultValue={''}
-                    className='w-full h-44 px-8 max-w-169 border bg-bplack font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-16'
+                    className='w-full h-44 px-8 max-w-169 border bg-bplack font-body focus:outline-none focus:border-yellow text-white block border-white rounded text-16 bg-black'
                     name={`lesson.${field.name}`}
-                    as={Select}
-                    onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                      handleChange(e, `lesson.${field.name}`)
-                    }
+                    as='select'
                   >
                     <option value='' disabled>
                       {field.placeholder}

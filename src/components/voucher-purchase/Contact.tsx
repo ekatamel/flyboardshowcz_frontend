@@ -65,7 +65,6 @@ export const Contact = () => {
                 )}
                 {field.type === 'select' && (
                   <Field
-                    defaultValue={''}
                     className='max-w-169 block h-44 w-full rounded border border-white bg-black px-8 font-body text-16 text-white focus:border-yellow focus:outline-none'
                     name={`customer.${field.name}`}
                     as={field.type}

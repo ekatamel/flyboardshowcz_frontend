@@ -78,12 +78,12 @@ export const ExpandableReservationRow = ({
   }
 
   const initialValues = {
-    first_name: used_by?.first_name,
-    last_name: used_by?.last_name,
-    email: used_by?.email,
-    phone_number: used_by?.phone_number,
-    instagram: used_by?.instagram,
-    message: message,
+    first_name: used_by?.first_name ?? '',
+    last_name: used_by?.last_name ?? '',
+    email: used_by?.email ?? '',
+    phone_number: used_by?.phone_number ?? '',
+    instagram: used_by?.instagram ?? '',
+    message: message ?? '',
     status,
   }
 
@@ -367,11 +367,18 @@ const Extras = ({
     },
     payment: {
       payment_type: 'cash',
+      total_amount: 0,
     },
     customer: {
       id: customerId,
     },
     voucher_id: voucherId,
+    merch: {
+      id: '',
+    },
+    extras: {
+      id: '',
+    },
   }
 
   const validate = (values: AdminOrder) => {

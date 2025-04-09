@@ -8,20 +8,16 @@ import { AnimatePresence } from 'framer-motion'
 import { useContext } from 'react'
 import { reservationSchema } from 'utils/validation-schemas'
 
-const initialValues = {}
-
 export const LessonReservationForm = () => {
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={{}}
       validationSchema={reservationSchema}
       onSubmit={() => {}}
     >
-      {
-        <FormNavigationProvider>
-          <LessonReservation />
-        </FormNavigationProvider>
-      }
+      <FormNavigationProvider>
+        <LessonReservation />
+      </FormNavigationProvider>
     </Formik>
   )
 }

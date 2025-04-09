@@ -95,10 +95,25 @@ export const AdminReservations = () => {
     },
     payment: {
       payment_type: 'cash',
+      total_amount: 0,
     },
     lesson: {
       datetime: currentDateTime,
-      branch_id: selectedBranchId,
+      branch_id: selectedBranchId ?? '',
+      code: '',
+    },
+    customer: {
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone_number: '',
+      instagram: '',
+    },
+    merch: {
+      id: '',
+    },
+    extras: {
+      id: '',
     },
   }
 

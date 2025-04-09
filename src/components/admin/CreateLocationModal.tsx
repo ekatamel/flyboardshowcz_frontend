@@ -50,6 +50,14 @@ export const CreateLocationModal = ({
     },
   })
 
+  const initialValues = {
+    name: '',
+    address: '',
+    lat: '',
+    long: '',
+    map_url: '',
+  }
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={'xl'}>
       <ModalOverlay sx={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }} />
@@ -64,7 +72,7 @@ export const CreateLocationModal = ({
         <ModalCloseButton />
         <ModalBody>
           <Formik
-            initialValues={{}}
+            initialValues={initialValues}
             onSubmit={() => {}}
             validationSchema={locationValidationSchema}
           >
