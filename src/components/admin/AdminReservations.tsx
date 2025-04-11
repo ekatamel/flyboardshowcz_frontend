@@ -1,12 +1,13 @@
 import { SmallAddIcon } from '@chakra-ui/icons'
 import { useDisclosure } from '@chakra-ui/react'
-import { AdminTable } from 'components/shared/AdminTable'
+import { AdminTable } from 'components/shared/table/AdminTable'
 import { TabList } from 'components/shared/TabList'
 import { compareAsc, format, parseISO } from 'date-fns'
 import { cs } from 'date-fns/locale'
 import { useEffect, useMemo, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useQuery } from 'react-query'
 import 'styles/admin-day-picker.css'
 import styles from 'styles/day-picker.module.css'
@@ -28,6 +29,8 @@ import { orderValidationSchema } from 'utils/validation-schemas'
 import { CreateOrderModal } from './CreateOrderModal'
 import { ExpandableReservationRow } from './ExpandableReservationRow'
 import { ReservationDashboard } from './ReservationDashboard'
+
+import { ErrorMessage } from 'components/shared/error/ErrorMessage'
 
 export const AdminReservations = () => {
   const [selectedBranchId, setSelectedBranchId] = useState<number | null>(null)
@@ -157,21 +160,23 @@ export const AdminReservations = () => {
           selectedDay={selectedDay}
         />
       )}
-      <DayPicker
-        mode='single'
-        className={'mt-20 text-white mx-auto'}
-        selected={selectedDay}
-        locale={cs}
-        modifiers={{
-          available: reservationDays,
-        }}
-        modifiersClassNames={{
-          available: styles.available,
-          disabled: styles.disabled,
-          selected: styles.selected,
-        }}
-        onSelect={date => setSelectedDay(date)}
-      />
+      <ErrorBoundary fallback={<ErrorMessage theme='dark' />}>
+        <DayPicker
+          mode='single'
+          className={'mt-20 text-white mx-auto'}
+          selected={selectedDay}
+          locale={cs}
+          modifiers={{
+            available: reservationDays,
+          }}
+          modifiersClassNames={{
+            available: styles.available,
+            disabled: styles.disabled,
+            selected: styles.selected,
+          }}
+          onSelect={date => setSelectedDay(date)}
+        />
+      </ErrorBoundary>
 
       {filteredReservations && filteredReservations.length > 0 && (
         <AdminTable

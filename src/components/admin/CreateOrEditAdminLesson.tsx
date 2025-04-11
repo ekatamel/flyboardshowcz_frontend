@@ -1,6 +1,6 @@
 import { Textarea, useMediaQuery } from '@chakra-ui/react'
 import { AdminButton } from 'components/shared/AdminButton'
-import { InputError } from 'components/shared/InputError'
+import { InputError } from 'components/shared/error/InputError'
 import { Field, Form, useFormikContext } from 'formik'
 import { useToastMessage } from 'hooks/useToastMesage'
 import { useMutation, useQueryClient } from 'react-query'

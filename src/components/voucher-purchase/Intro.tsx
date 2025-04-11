@@ -3,7 +3,7 @@ import foot from 'assets/images/foot.png'
 import { HappyFace } from 'assets/images/HappyFace'
 import location from 'assets/images/location.png'
 import { Ticket } from 'assets/images/Ticket'
-import { Layout } from 'components/shared/Layout'
+import { Layout } from 'components/shared/layout/Layout'
 import { useNavigate } from 'react-router-dom'
 
 import { Tile } from '../shared/Tile'

@@ -14,7 +14,7 @@ import {
 import { Button } from '../shared/Button'
 
 import { InfoOverlay } from 'components/shared/InfoOverlay'
-import { TextInput } from 'components/shared/TextInput'
+import { TextInput } from 'components/shared/form/TextInput'
 import { useFormikContext } from 'formik'
 import { useToastMessage } from 'hooks/useToastMesage'
 

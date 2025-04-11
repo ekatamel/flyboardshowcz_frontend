@@ -4,6 +4,8 @@ import {
 } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import stripe from 'assets/images/stripe.svg'
+import { ErrorMessage } from 'components/shared/error/ErrorMessage'
+import { ErrorScreen } from 'components/shared/error/ErrorScreen'
 import { Progress } from 'components/shared/Progress'
 import { FormNavigationContext as ReservationContext } from 'context/ReservationFormNavigationContext'
 import { FormNavigationContext as VoucherPurchaseContext } from 'context/VoucherFormNavigationContext'
@@ -12,6 +14,7 @@ import { usePriceTotals } from 'hooks/usePriceTotals'
 import { usePrompt } from 'hooks/usePrompt'
 import { useToastMessage } from 'hooks/useToastMesage'
 import { useContext, useEffect, useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useMutation } from 'react-query'
 import { Order, PaymentOrigin, Vouchers } from 'types/types'
 import { createCheckoutSession } from 'utils/requests'
@@ -91,11 +94,13 @@ export const Payment = ({ origin }: PaymentProps) => {
         </p>
 
         <div className='hidden lg:block'>
-          <CheckoutTable
-            isTotalDivider={true}
-            padding='6px 0'
-            origin={origin}
-          />
+          <ErrorBoundary fallback={<ErrorMessage theme='dark' />}>
+            <CheckoutTable
+              isTotalDivider={true}
+              padding='6px 0'
+              origin={origin}
+            />
+          </ErrorBoundary>
         </div>
 
         {origin === PaymentOrigin.ORDER && <BankTransferDetails />}
@@ -124,16 +129,18 @@ export const Payment = ({ origin }: PaymentProps) => {
       </div>
 
       <div className='lg:w-1/2 min-h-screen flex items-center bg-white'>
-        <div id='checkout' className='w-full'>
-          {clientSecret && stripePromise && (
-            <EmbeddedCheckoutProvider
-              stripe={stripePromise}
-              options={{ clientSecret }}
-            >
-              <EmbeddedCheckout />
-            </EmbeddedCheckoutProvider>
-          )}
-        </div>
+        <ErrorBoundary fallback={<ErrorScreen />}>
+          <div id='checkout' className='w-full'>
+            {clientSecret && stripePromise && (
+              <EmbeddedCheckoutProvider
+                stripe={stripePromise}
+                options={{ clientSecret }}
+              >
+                <EmbeddedCheckout />
+              </EmbeddedCheckoutProvider>
+            )}
+          </div>
+        </ErrorBoundary>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import logo from 'assets/images/logo-new.png'
 import clsx from 'clsx'
-import { InputError } from 'components/shared/InputError'
+import { InputError } from 'components/shared/error/InputError'
 import { useAuth } from 'context/AuthContext'
 import { Field, Form, Formik } from 'formik'
 import { useEffect } from 'react'

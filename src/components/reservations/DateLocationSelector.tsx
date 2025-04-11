@@ -1,11 +1,12 @@
 import { useMediaQuery } from '@chakra-ui/react'
-import { Layout } from 'components/shared/Layout'
+import { Layout } from 'components/shared/layout/Layout'
 import { cs } from 'date-fns/locale'
 import { useFormikContext } from 'formik'
 import { motion } from 'framer-motion'
 import { useEffect, useMemo, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useQuery } from 'react-query'
 import 'styles/day-picker.css'
 import styles from 'styles/day-picker.module.css'
@@ -27,6 +28,8 @@ import {
 import { BranchSelector } from './BranchSelector'
 import { DateTimeInfo } from './DateTimeInfo'
 import { TimeSelector } from './TimeSelector'
+
+import { ErrorMessage } from 'components/shared/error/ErrorMessage'
 
 export const DateLocationSelector = () => {
   const { values, setFieldValue } = useFormikContext<Vouchers>()
@@ -106,56 +109,59 @@ export const DateLocationSelector = () => {
       </div>
 
       <div className='mb-20 flex flex-col justify-center sm:flex-row sm:px-20 md:px-60 lg:gap-40 lg:px-70 xl:px-0'>
-        <motion.div
-          variants={getDayPickerVariants(isXlBreakpoint)}
-          initial='hidden'
-          animate={showTimeSelector ? 'visible' : 'hidden'}
-          className='w-full lg:w-1/2'
-        >
-          {availableBranchDates.length > 0 && (
-            <DayPicker
-              mode='single'
-              className={'mt-20 text-white'}
-              selected={selectedDate}
-              defaultMonth={getFirstAvailableMonth(availableBranchDates)}
-              onSelect={date => {
-                setFieldValue('date', date && formatDateToString(date))
-                setFieldValue('time', null)
-                setFieldValue('timeslot_id', null)
-              }}
-              modifiers={{
-                available: availableBranchDates,
-                disabled: date => isDisabledDate(availableBranchDates, date),
-              }}
-              modifiersClassNames={{
-                available: styles.available,
-                disabled: styles.disabled,
-                selected: styles.selected,
-              }}
-              locale={cs}
-            />
-          )}
-          {availableBranchDates.length === 0 && (
-            <DayPicker
-              mode='single'
-              className={'mt-20 text-white'}
-              defaultMonth={new Date()}
-              locale={cs}
-              disabled={true}
-            />
-          )}
-        </motion.div>
-        {showTimeSelector && (
+        <ErrorBoundary fallback={<ErrorMessage theme='dark' />}>
           <motion.div
-            variants={getTimePickerVariants(isXlBreakpoint)}
+            variants={getDayPickerVariants(isXlBreakpoint)}
             initial='hidden'
-            animate='visible'
-            transition={{ duration: 0.2 }}
+            animate={showTimeSelector ? 'visible' : 'hidden'}
             className='w-full lg:w-1/2'
           >
-            <TimeSelector timeslots={selectedDayTimeslots} />
+            {availableBranchDates.length > 0 && (
+              <DayPicker
+                mode='single'
+                className={'mt-20 text-white'}
+                selected={selectedDate}
+                defaultMonth={getFirstAvailableMonth(availableBranchDates)}
+                onSelect={date => {
+                  setFieldValue('date', date && formatDateToString(date))
+                  setFieldValue('time', null)
+                  setFieldValue('timeslot_id', null)
+                }}
+                modifiers={{
+                  available: availableBranchDates,
+                  disabled: date => isDisabledDate(availableBranchDates, date),
+                }}
+                modifiersClassNames={{
+                  available: styles.available,
+                  disabled: styles.disabled,
+                  selected: styles.selected,
+                }}
+                locale={cs}
+              />
+            )}
+            {availableBranchDates.length === 0 && (
+              <DayPicker
+                mode='single'
+                className={'mt-20 text-white'}
+                defaultMonth={new Date()}
+                locale={cs}
+                disabled={true}
+              />
+            )}
           </motion.div>
-        )}
+
+          {showTimeSelector && (
+            <motion.div
+              variants={getTimePickerVariants(isXlBreakpoint)}
+              initial='hidden'
+              animate='visible'
+              transition={{ duration: 0.2 }}
+              className='w-full lg:w-1/2'
+            >
+              <TimeSelector timeslots={selectedDayTimeslots} />
+            </motion.div>
+          )}
+        </ErrorBoundary>
       </div>
     </Layout>
   )

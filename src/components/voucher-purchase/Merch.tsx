@@ -1,13 +1,15 @@
 import cross from 'assets/images/cross.svg'
 import clsx from 'clsx'
-import { Layout } from 'components/shared/Layout'
-import { SkeletonTiles } from 'components/shared/SkeletonTiles'
+import { ErrorTile } from 'components/shared/error/ErrorTile'
+import { Layout } from 'components/shared/layout/Layout'
+import { SkeletonTiles } from 'components/shared/loading/SkeletonTiles'
 import { QuantitySelector } from 'components/voucher-purchase-form/QuantitySelector'
 import { useFormikContext } from 'formik'
 import { motion } from 'framer-motion'
 import { useToastMessage } from 'hooks/useToastMesage'
 import { groupBy, map } from 'lodash'
 import { useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useQuery } from 'react-query'
 import { MerchInfo, Order } from 'types/types'
 import { fetchMerch } from 'utils/requests'
@@ -18,7 +20,6 @@ import {
 } from 'utils/utils'
 
 import { Tile } from '../shared/Tile'
-import { Basket } from '../voucher-purchase-form/Basket'
 
 export const Merch = () => {
   const { showToast, isActive } = useToastMessage()
@@ -77,7 +78,7 @@ export const Merch = () => {
     <Layout
       stepName='Merch'
       title='Něco na sebe?'
-      rightComponent={<Basket />}
+      showBasket={true}
       isNextDisabled={!isMerchSelectionComplete}
       disabledText={
         !isMerchSelectionComplete
@@ -235,43 +236,47 @@ export const MerchItem = ({
 
   return (
     <div className='flex h-150 flex-col lg:h-196' key={product.id}>
-      <Tile
-        badgeText={isBestseller ? 'Bestseller' : ''}
-        tooltip={
-          sizes.length > 0
-            ? 'Daná položka vyžaduje výběr velikosti. Klikněte na položku pro výber velikosti'
-            : undefined
-        }
-        title={product.name}
-        icon={icon}
-        subtitle={`${product.price},-`}
-        isSelected={isSelected}
-        onClick={onTileClick}
-        overlay={
-          sizes.length > 0 && showOverlay ? (
-            <SizeOverlay
-              isPreSelected={preSelectedQuantity > 0}
-              product={product}
-              sizes={sizes}
-              setShowOverlay={setShowOverlay}
-              sizeSelected={sizeSelected}
-              setSizeSelected={setSizeSelected}
-            />
-          ) : null
-        }
-      />
-      {isSelected && (
-        <QuantitySelector
-          onAmountDecrease={() => {
-            onAmountDecrease()
-            if (selectedMerch?.quantity === 1) setShowOverlay(false)
-          }}
-          isDecreaseDisabled={!!preSelectedQuantity}
-          onAmountIncrease={onAmountIncrease}
-          isIncreaseDisabled={!!preSelectedQuantity}
-          initialQuantity={preSelectedQuantity || selectedMerch?.quantity || 0}
+      <ErrorBoundary fallback={<ErrorTile />}>
+        <Tile
+          badgeText={isBestseller ? 'Bestseller' : ''}
+          tooltip={
+            sizes.length > 0
+              ? 'Daná položka vyžaduje výběr velikosti. Klikněte na položku pro výber velikosti'
+              : undefined
+          }
+          title={product.name}
+          icon={icon}
+          subtitle={`${product.price},-`}
+          isSelected={isSelected}
+          onClick={onTileClick}
+          overlay={
+            sizes.length > 0 && showOverlay ? (
+              <SizeOverlay
+                isPreSelected={preSelectedQuantity > 0}
+                product={product}
+                sizes={sizes}
+                setShowOverlay={setShowOverlay}
+                sizeSelected={sizeSelected}
+                setSizeSelected={setSizeSelected}
+              />
+            ) : null
+          }
         />
-      )}
+        {isSelected && (
+          <QuantitySelector
+            onAmountDecrease={() => {
+              onAmountDecrease()
+              if (selectedMerch?.quantity === 1) setShowOverlay(false)
+            }}
+            isDecreaseDisabled={!!preSelectedQuantity}
+            onAmountIncrease={onAmountIncrease}
+            isIncreaseDisabled={!!preSelectedQuantity}
+            initialQuantity={
+              preSelectedQuantity || selectedMerch?.quantity || 0
+            }
+          />
+        )}
+      </ErrorBoundary>
     </div>
   )
 }

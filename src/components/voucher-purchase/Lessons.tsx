@@ -1,4 +1,4 @@
-import { SkeletonPage } from 'components/shared/SkeletonPage'
+import { SkeletonPage } from 'components/shared/loading/SkeletonPage'
 import { LessonType } from 'components/voucher-purchase-form/LessonsType'
 import { useToastMessage } from 'hooks/useToastMesage'
 import { useQuery } from 'react-query'

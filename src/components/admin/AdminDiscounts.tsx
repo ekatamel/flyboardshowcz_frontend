@@ -1,4 +1,4 @@
-import { AdminTable } from 'components/shared/AdminTable'
+import { AdminTable } from 'components/shared/table/AdminTable'
 import { useToastMessage } from 'hooks/useToastMesage'
 import { useState } from 'react'
 import { useQuery, useQueryClient } from 'react-query'

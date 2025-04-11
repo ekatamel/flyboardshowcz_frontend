@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { InputError } from 'components/shared/InputError'
+import { InputError } from 'components/shared/error/InputError'
 import { Field, useFormikContext } from 'formik'
 import { useQuery } from 'react-query'
 import { AdminOrder, FormFields, MerchInfo } from 'types/types'

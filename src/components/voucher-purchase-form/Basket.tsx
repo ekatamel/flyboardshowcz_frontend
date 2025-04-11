@@ -1,10 +1,12 @@
 import { Menu, MenuButton, MenuList, Portal } from '@chakra-ui/react'
 import dropdownIcon from 'assets/images/dropdown.svg'
+import { ErrorMessage } from 'components/shared/error/ErrorMessage'
 import { CheckoutTable } from 'components/voucher-purchase/CheckoutTable'
 import { FormNavigationContext } from 'context/VoucherFormNavigationContext'
 import { useFormikContext } from 'formik'
 import { usePriceTotals } from 'hooks/usePriceTotals'
 import { useContext } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { LessonType, Order, ProductType } from 'types/types'
 
 export const Basket = () => {
@@ -89,7 +91,12 @@ export const Basket = () => {
               padding={0}
               className='border border-yellow hidden lg:block'
             >
-              <CheckoutTable onProductDelete={onDelete} padding={'10px 20px'} />
+              <ErrorBoundary fallback={<ErrorMessage theme='dark' />}>
+                <CheckoutTable
+                  onProductDelete={onDelete}
+                  padding={'10px 20px'}
+                />
+              </ErrorBoundary>
             </MenuList>
           </Portal>
         </Menu>

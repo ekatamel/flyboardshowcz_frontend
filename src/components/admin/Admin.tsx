@@ -1,4 +1,4 @@
-import { AdminLayout } from 'components/shared/AdminLayout'
+import { AdminLayout } from 'components/shared/layout/AdminLayout'
 import { AuthProvider } from 'context/AuthContext'
 import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'

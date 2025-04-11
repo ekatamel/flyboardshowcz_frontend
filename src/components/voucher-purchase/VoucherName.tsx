@@ -15,18 +15,16 @@ import moustache from 'assets/images/moustache.png'
 import spy from 'assets/images/spy.png'
 import voucherSreenshot from 'assets/images/voucher-screen.png'
 import { Button } from 'components/shared/Button'
+import { InputError } from 'components/shared/error/InputError'
 import { InfoOverlay } from 'components/shared/InfoOverlay'
-import { InputError } from 'components/shared/InputError'
-import { Layout } from 'components/shared/Layout'
-import { TableHead } from 'components/shared/TableHead'
-import { TableRow } from 'components/shared/TableRow'
+import { Layout } from 'components/shared/layout/Layout'
+import { TableHead } from 'components/shared/table/TableHead'
+import { TableRow } from 'components/shared/table/TableRow'
 import { Voucher } from 'components/voucher/Voucher'
 import { format } from 'date-fns'
 import { Field, FormikErrors, useFormikContext } from 'formik'
 import { useMemo } from 'react'
 import { LessonType, Order } from 'types/types'
-
-import { Basket } from '../voucher-purchase-form/Basket'
 
 export const VoucherName = () => {
   const { values, errors } = useFormikContext<Order>()
@@ -41,7 +39,7 @@ export const VoucherName = () => {
     <Layout
       stepName='Voucher'
       title='Jméno na voucher'
-      rightComponent={<Basket />}
+      showBasket={true}
       middleComponent={
         <div className='my-40 ml-auto flex w-full grow sm:my-0 md:w-fit md:basis-8/12 xl:block order-1 md:order-2'>
           <Button

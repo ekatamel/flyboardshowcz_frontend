@@ -1,4 +1,4 @@
-import { Layout } from 'components/shared/Layout'
+import { Layout } from 'components/shared/layout/Layout'
 import { SimpleCarousel } from 'components/shared/SimpleCarousel'
 import { FormNavigationContext } from 'context/ReservationFormNavigationContext'
 import { format } from 'date-fns'

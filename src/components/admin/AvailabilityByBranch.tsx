@@ -1,4 +1,4 @@
-import { AdminTable } from 'components/shared/AdminTable'
+import { AdminTable } from 'components/shared/table/AdminTable'
 import { isSameDay } from 'date-fns'
 import { Lecturer, TimeInfo, TimeslotsByDay } from 'types/types'
 import { getAvailabilityTableColumns } from 'utils/table-config'

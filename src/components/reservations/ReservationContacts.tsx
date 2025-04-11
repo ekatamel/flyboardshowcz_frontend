@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import { InputError } from 'components/shared/InputError'
-import { Layout } from 'components/shared/Layout'
+import { InputError } from 'components/shared/error/InputError'
+import { Layout } from 'components/shared/layout/Layout'
 import { SimpleCarousel } from 'components/shared/SimpleCarousel'
 import { Field, FormikErrors, FormikTouched, useFormikContext } from 'formik'
 import { useEffect, useState } from 'react'

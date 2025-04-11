@@ -1,13 +1,11 @@
-import { InputError } from 'components/shared/InputError'
-import { Layout } from 'components/shared/Layout'
+import { InputError } from 'components/shared/error/InputError'
+import { Layout } from 'components/shared/layout/Layout'
 import { Field, useFormikContext } from 'formik'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { KnowFrom, Order } from 'types/types'
 import { getContactFormFields } from 'utils/form-config'
 import { fetchKnowFrom } from 'utils/requests'
-
-import { Basket } from '../voucher-purchase-form/Basket'
 
 export const Contact = () => {
   const { values, setValues, errors, touched } = useFormikContext<Order>()
@@ -34,7 +32,7 @@ export const Contact = () => {
     <Layout
       stepName='Kontakt'
       title='Kontaktní údaje'
-      rightComponent={<Basket />}
+      showBasket={true}
       isNextDisabled={Object.keys(errors).length > 0}
     >
       <p className='m-auto mx-20 mb-40 mt-20 flex flex-col text-center text-14 text-white sm:mx-44 lg:mx-0 lg:text-16'>

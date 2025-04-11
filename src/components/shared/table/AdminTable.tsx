@@ -23,6 +23,7 @@ import { getRowColor } from 'utils/utils'
 
 import { TablePagination } from './TablePagination'
 
+// TODO review and refactor
 interface AdminTableProps<T extends object> {
   data: T[]
   columns: ColumnDef<T, any>[]

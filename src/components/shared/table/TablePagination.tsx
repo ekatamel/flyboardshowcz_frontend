@@ -2,7 +2,7 @@ import { Select } from '@chakra-ui/react'
 import clsx from 'clsx'
 import { Pagination } from 'types/types'
 
-import { AdminButton } from './AdminButton'
+import { AdminButton } from '../AdminButton'
 
 interface TablePaginationProps<T extends object> {
   pagination: Pagination

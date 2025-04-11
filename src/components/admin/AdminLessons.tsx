@@ -8,7 +8,7 @@ import {
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react'
-import { AdminTable } from 'components/shared/AdminTable'
+import { AdminTable } from 'components/shared/table/AdminTable'
 import { Formik } from 'formik'
 import { useToastMessage } from 'hooks/useToastMesage'
 import { useState } from 'react'

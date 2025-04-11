@@ -1,6 +1,6 @@
 import { Skeleton } from '@chakra-ui/react'
-import { Layout } from 'components/shared/Layout'
-import { SkeletonCarousel } from 'components/shared/SkeletonCarousel'
+import { Layout } from 'components/shared/layout/Layout'
+import { SkeletonCarousel } from 'components/shared/loading/SkeletonCarousel'
 
 export const SkeletonPage = () => {
   return (

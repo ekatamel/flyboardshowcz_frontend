@@ -1,6 +1,6 @@
 import { Table, TableContainer, Tbody } from '@chakra-ui/react'
 import clsx from 'clsx'
-import { TableHead } from 'components/shared/TableHead'
+import { TableHead } from 'components/shared/table/TableHead'
 import { FormNavigationContext } from 'context/VoucherFormNavigationContext'
 import { FormikErrors, useFormikContext } from 'formik'
 import { useGroupedProducts } from 'hooks/useGroupedProducts'
@@ -9,7 +9,7 @@ import { useContext } from 'react'
 import { Order, PaymentOrigin, ProductType, Vouchers } from 'types/types'
 import { formatPrice, getDiscountValue, removeDiscount } from 'utils/utils'
 
-import { TableRow } from '../shared/TableRow'
+import { TableRow } from '../shared/table/TableRow'
 
 interface CheckoutTable {
   isHeader?: boolean

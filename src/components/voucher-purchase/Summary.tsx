@@ -1,9 +1,11 @@
 import { Table, TableContainer, Tbody } from '@chakra-ui/react'
-import { Layout } from 'components/shared/Layout'
-import { TableHead } from 'components/shared/TableHead'
-import { TableRow } from 'components/shared/TableRow'
+import { ErrorMessage } from 'components/shared/error/ErrorMessage'
+import { Layout } from 'components/shared/layout/Layout'
+import { TableHead } from 'components/shared/table/TableHead'
+import { TableRow } from 'components/shared/table/TableRow'
 import { useFormikContext } from 'formik'
 import { useCreateOrder } from 'hooks/useCreateOrder'
+import { ErrorBoundary } from 'react-error-boundary'
 import { Order } from 'types/types'
 
 import { CheckoutTable } from './CheckoutTable'
@@ -69,12 +71,14 @@ export const Summary = () => {
       </div>
 
       <div className='mx-20 sm:mx-44 md:mx-80 lg:mx-100 xl:mx-0'>
-        <CheckoutTable
-          isHeader={true}
-          className={'text-16 lg:text-20'}
-          isTotalDivider={true}
-          padding='16px 0'
-        />
+        <ErrorBoundary fallback={<ErrorMessage theme='dark' />}>
+          <CheckoutTable
+            isHeader={true}
+            className={'text-16 lg:text-20'}
+            isTotalDivider={true}
+            padding='16px 0'
+          />
+        </ErrorBoundary>
       </div>
 
       <p className='text-darkerGray font-title my-34 xl:my-10 text-right ml-auto text-12 mx-20 sm:mx-44 md:mx-80 lg:mx-100 xl:mx-0'>

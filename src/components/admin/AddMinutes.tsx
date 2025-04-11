@@ -1,4 +1,4 @@
-import { InputError } from 'components/shared/InputError'
+import { InputError } from 'components/shared/error/InputError'
 import { Field, useFormikContext } from 'formik'
 import { AdminOrder, ExtrasInfo, FormFields } from 'types/types'
 

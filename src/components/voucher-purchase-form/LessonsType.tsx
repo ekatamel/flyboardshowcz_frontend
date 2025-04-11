@@ -1,4 +1,4 @@
-import { Layout } from 'components/shared/Layout'
+import { Layout } from 'components/shared/layout/Layout'
 import { useFormikContext } from 'formik'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -7,7 +7,6 @@ import { Lesson, Order } from 'types/types'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import { Basket } from './Basket'
 import { Discount } from './Discount'
 import { LessonCarousel } from './LessonCarousel'
 import { ValidityFilter } from './ValidityFilter'
@@ -39,7 +38,7 @@ export const LessonType = ({
           setSelectedValidityDate={setSelectedValidityDate}
         />
       }
-      rightComponent={<Basket />}
+      showBasket={true}
       middleComponent={
         <div className='mb-24 flex w-full justify-between sm:mx-0 md:mb-0 xl:mb-0 order-1 md:order-2'>
           <Discount />

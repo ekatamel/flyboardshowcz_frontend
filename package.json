@@ -29,6 +29,7 @@
     "react-day-picker": "^8.10.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^5.0.0",
     "react-ga4": "^2.1.0",
     "react-query": "^3.39.3",
     "react-scripts": "5.0.1",

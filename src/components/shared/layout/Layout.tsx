@@ -3,20 +3,21 @@ import arrowLeft from 'assets/images/arrow-left.svg'
 import logo from 'assets/images/logo-new.png'
 import clsx from 'clsx'
 import { Button } from 'components/shared/Button'
+import { Basket } from 'components/voucher-purchase-form/Basket'
 import { FormNavigationContext as ReservationContext } from 'context/ReservationFormNavigationContext'
 import { FormNavigationContext as VoucherPurchaseContext } from 'context/VoucherFormNavigationContext'
 import { motion } from 'framer-motion'
 import { usePrompt } from 'hooks/usePrompt'
 import { useContext } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useLocation } from 'react-router-dom'
 
-import { Progress } from './Progress'
+import { Progress } from '../Progress'
 
 interface LayoutProps {
   stepName: string
   title: string
   leftComponent?: React.ReactNode
-  rightComponent?: React.ReactNode
   middleComponent?: React.ReactNode
   children?: React.ReactNode
   noNavigation?: boolean
@@ -26,13 +27,14 @@ interface LayoutProps {
   isNextDisabled?: boolean
   disabledText?: string
   noProgress?: boolean
+  showBasket?: boolean
 }
 
 export const Layout = ({
   stepName,
   title,
   leftComponent,
-  rightComponent,
+
   middleComponent,
   children,
   noNavigation = false,
@@ -42,6 +44,7 @@ export const Layout = ({
   isNextDisabled,
   disabledText,
   noProgress = false,
+  showBasket = false,
 }: LayoutProps) => {
   const location = useLocation()
 
@@ -155,10 +158,13 @@ export const Layout = ({
                 leftComponent && 'lg:order-3',
               )}
             >
-              {rightComponent}
+              {showBasket && (
+                <ErrorBoundary fallback={<></>}>
+                  <Basket />
+                </ErrorBoundary>
+              )}
             </div>
           </div>
-
           {children}
         </main>
         <div

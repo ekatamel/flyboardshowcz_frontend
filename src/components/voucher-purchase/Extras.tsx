@@ -1,15 +1,16 @@
 import { useOutsideClick } from '@chakra-ui/react'
 import cross from 'assets/images/cross.svg'
 import clsx from 'clsx'
-import { Layout } from 'components/shared/Layout'
-import { SkeletonTiles } from 'components/shared/SkeletonTiles'
+import { ErrorTile } from 'components/shared/error/ErrorTile'
+import { Layout } from 'components/shared/layout/Layout'
+import { SkeletonTiles } from 'components/shared/loading/SkeletonTiles'
 import { Tile } from 'components/shared/Tile'
-import { Basket } from 'components/voucher-purchase-form/Basket'
 import { FormNavigationContext } from 'context/ReservationFormNavigationContext'
 import { useFormikContext } from 'formik'
 import { motion } from 'framer-motion'
 import { useToastMessage } from 'hooks/useToastMesage'
 import { useContext, useEffect, useRef, useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useQuery } from 'react-query'
 import {
   ExtrasInfo,
@@ -91,7 +92,7 @@ export const Extras = ({ origin }: ExtrasProps) => {
           ? 'Vzpomínka na celý život'
           : 'Dáme k tomu ještě vzpomínku?'
       }
-      rightComponent={!isReservation && <Basket />}
+      showBasket={!isReservation}
     >
       <p className='mx-20 mt-20 text-center text-14 text-white sm:mx-44 md:mx-80 lg:mx-100 lg:mt-38 lg:text-16 xl:mx-0'>
         81% zákazníků si vyzkouší létání pouze jednou. Proto Vám doporučujeme si
@@ -207,24 +208,26 @@ const ExtrasItem = ({
 
   return (
     <div className='flex flex-col'>
-      <Tile
-        key={extra.id}
-        badgeText={isBestseller ? 'Bestseller' : ''}
-        title={extra.name}
-        subtitle={`${extra.price},-`}
-        isSelected={isSelected}
-        onClick={handleExtrasClick}
-        selector={
-          formValues.length !== 1 ? (
-            <VoucherSelector
-              extra={extra}
-              showSelector={showSelector}
-              closeSelector={() => setShowSelector(false)}
-              isReservation={isReservation}
-            />
-          ) : null
-        }
-      />
+      <ErrorBoundary fallback={<ErrorTile />}>
+        <Tile
+          key={extra.id}
+          badgeText={isBestseller ? 'Bestseller' : ''}
+          title={extra.name}
+          subtitle={`${extra.price},-`}
+          isSelected={isSelected}
+          onClick={handleExtrasClick}
+          selector={
+            formValues.length !== 1 ? (
+              <VoucherSelector
+                extra={extra}
+                showSelector={showSelector}
+                closeSelector={() => setShowSelector(false)}
+                isReservation={isReservation}
+              />
+            ) : null
+          }
+        />
+      </ErrorBoundary>
     </div>
   )
 }

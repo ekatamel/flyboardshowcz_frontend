@@ -28,12 +28,14 @@ export const Toast = ({ status, title, description, onClose }: ToastProps) => {
       <div className='flex items-center'>
         <Icon />
         <p className='font-title text-20 px-16'>{title}</p>
-        <img
-          src={cross}
-          alt='Close'
-          className='block ml-auto absolute top-24 right-24 cursor-pointer'
-          onClick={onClose}
-        />
+        {onClose && (
+          <img
+            src={cross}
+            alt='Close'
+            className='block ml-auto absolute top-24 right-24 cursor-pointer'
+            onClick={onClose}
+          />
+        )}
       </div>
 
       <p className='text-gray text-16 pl-40 mt-8'>{description}</p>

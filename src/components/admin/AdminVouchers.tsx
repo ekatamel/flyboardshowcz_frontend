@@ -1,6 +1,6 @@
-import { AdminTable } from 'components/shared/AdminTable'
 import { CsvExport } from 'components/shared/CsvExport'
-import { DebouncedInput } from 'components/shared/DebounceInput'
+import { DebouncedInput } from 'components/shared/form/DebounceInput'
+import { AdminTable } from 'components/shared/table/AdminTable'
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import {

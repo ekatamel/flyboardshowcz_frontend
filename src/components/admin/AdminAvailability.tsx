@@ -3,6 +3,7 @@ import { cs } from 'date-fns/locale'
 import { useEffect, useMemo, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useQuery } from 'react-query'
 import 'styles/admin-day-picker.css'
 import styles from 'styles/day-picker.module.css'
@@ -10,6 +11,8 @@ import { Branch, Timeslot, TimeslotsByDayAndTime } from 'types/types'
 import { fetchBranches, fetchTimeslots } from 'utils/requests'
 
 import { AvailabilityByBranch } from './AvailabilityByBranch'
+
+import { ErrorMessage } from 'components/shared/error/ErrorMessage'
 
 export const AdminAvailability = () => {
   const { data: timeslots } = useQuery<Timeslot[]>('timeslots', fetchTimeslots)
@@ -77,29 +80,33 @@ export const AdminAvailability = () => {
           selectedDay={selectedDay}
         />
       )}
+
       {timeslotsReducedByBranchAndDay && (
         <>
-          <DayPicker
-            mode='single'
-            className={'mt-20 text-white mx-auto'}
-            selected={selectedDay}
-            locale={cs}
-            modifiers={{
-              available:
-                selectedBranchId &&
-                timeslotsReducedByBranchAndDay[selectedBranchId]
-                  ? Object.keys(
-                      timeslotsReducedByBranchAndDay[selectedBranchId],
-                    ).map(date => new Date(date))
-                  : [],
-            }}
-            modifiersClassNames={{
-              available: styles.available,
-              disabled: styles.disabled,
-              selected: styles.selected,
-            }}
-            onSelect={date => setSelectedDay(date)}
-          />
+          <ErrorBoundary fallback={<ErrorMessage theme='dark' />}>
+            <DayPicker
+              mode='single'
+              className={'mt-20 text-white mx-auto'}
+              selected={selectedDay}
+              locale={cs}
+              modifiers={{
+                available:
+                  selectedBranchId &&
+                  timeslotsReducedByBranchAndDay[selectedBranchId]
+                    ? Object.keys(
+                        timeslotsReducedByBranchAndDay[selectedBranchId],
+                      ).map(date => new Date(date))
+                    : [],
+              }}
+              modifiersClassNames={{
+                available: styles.available,
+                disabled: styles.disabled,
+                selected: styles.selected,
+              }}
+              onSelect={date => setSelectedDay(date)}
+            />
+          </ErrorBoundary>
+
           <AvailabilityByBranch
             branchAvailability={
               selectedBranchId

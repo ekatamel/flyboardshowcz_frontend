@@ -6,7 +6,6 @@ import { FunctionComponent, SVGProps, useState } from 'react'
 import { Badge } from './Badge'
 
 interface TileProps {
-  disabled?: boolean
   icon?: FunctionComponent<SVGProps<SVGSVGElement>>
   title: string
   subtitle?: string | number
@@ -19,7 +18,6 @@ interface TileProps {
 }
 
 export const Tile = ({
-  disabled,
   title,
   subtitle,
   isSelected = false,
@@ -43,39 +41,26 @@ export const Tile = ({
           !selector && 'transition hover:scale-105',
           isSelected && !overlay
             ? 'bg-yellow text-black transition hover:shadow-custom-yellow'
-            : disabled
-              ? 'bg-black text-mediumGray  border border-mediumGray'
-              : 'bg-black text-yellow border border-yellow hover:bg-yellow hover:text-black ',
+            : 'bg-black text-yellow border border-yellow hover:bg-yellow hover:text-black ',
 
           overlay && 'border border-yellow ',
         )}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={!disabled ? onClick : undefined}
+        onClick={onClick}
       >
         {badgeText && (
           <Badge text={badgeText} isHighlighted={isHovered || isSelected} />
-        )}
-        {disabled && (
-          <div
-            className={clsx(
-              'absolute top-10 lg:top-20 -left-30 lg:-left-24 text-10 lg:text-12 w-100 -rotate-45 bg-mediumGray text-black',
-            )}
-          >
-            Připravujeme
-          </div>
         )}
         {title}
         {Icon && (
           <Icon
             fill={clsx(
-              disabled
-                ? '#837e7e'
-                : isSelected
+              isSelected
+                ? 'black'
+                : isHovered
                   ? 'black'
-                  : isHovered
-                    ? 'black'
-                    : 'rgba(255, 234, 0, 1)',
+                  : 'rgba(255, 234, 0, 1)',
             )}
           />
         )}
