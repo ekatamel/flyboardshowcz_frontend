@@ -15,7 +15,7 @@ interface ButtonProps {
   className?: string
   tooltip?: string
 }
-
+// TODO refactor
 export const Button = ({
   title,
   type = 'button',
@@ -56,7 +56,7 @@ export const Button = ({
           variant === 'primary'
             ? disabled
               ? 'bg-gray text-black'
-              : 'bg-yellow hover:scale-105 transition hover:shadow-custom-yellow active:bg-darkYellow'
+              : 'bg-yellow hover:scale-105 transition hover:shadow-custom-yellow active:bg-darkYellow text-black'
             : '',
           variant === 'secondary' && 'text-textGray  hover:text-white',
           position === 'right' && 'mx-auto md:mx-0 md:ml-auto',

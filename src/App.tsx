@@ -6,6 +6,7 @@ import { AdminVouchers } from 'components/admin/AdminVouchers'
 import { Login } from 'components/auth/Login'
 import { Registration } from 'components/auth/Registration'
 import { LessonReservationForm } from 'components/reservations/LessonReservationForm'
+import { NotFound } from 'components/shared/error/NotFound'
 import { ProtectedRoute } from 'components/shared/ProtectedRoute'
 import { VoucherPurchaseForm } from 'components/voucher-purchase-form/VoucherPuchaseForm'
 import { Intro } from 'components/voucher-purchase/Intro'
@@ -72,6 +73,10 @@ function App() {
         { path: 'zakaznici', element: <AdminCustomers /> },
         { path: 'lekce', element: <AdminLessons /> },
       ],
+    },
+    {
+      path: '*',
+      element: <NotFound />,
     },
   ])
 
