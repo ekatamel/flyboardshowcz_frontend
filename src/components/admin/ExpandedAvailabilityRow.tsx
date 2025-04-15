@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import { AdminButton } from 'components/shared/AdminButton'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useEffect, useRef, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import Select from 'react-select'

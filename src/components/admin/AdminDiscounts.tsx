@@ -1,5 +1,5 @@
 import { AdminTable } from 'components/shared/table/AdminTable'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useState } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 import { AdminDiscountsResponse, DiscountData, Pagination } from 'types/types'

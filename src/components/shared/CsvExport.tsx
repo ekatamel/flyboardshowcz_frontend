@@ -1,7 +1,7 @@
 import { DownloadIcon } from '@chakra-ui/icons'
 import { AxiosResponse } from 'axios'
 import { LoadingSpinner } from 'components/shared/loading/LoadingSpinner'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useMutation } from 'react-query'
 import { Response } from 'types/types'
 

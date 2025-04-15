@@ -32,43 +32,33 @@ export const Tile = ({
 
   if (overlay) return overlay
 
+  const tileClasses = clsx(
+    baseTileClasses,
+    !selector && 'transition hover:scale-105',
+    isSelected ? selectedTileClasses : notSelectedTileClasses,
+    overlay && overlayClasses,
+  )
+
+  const isHighlighted = isHovered || isSelected
+
   return (
     <div className='relative'>
       {selector}
       <div
-        className={clsx(
-          'lg:w-168 lg:h-140 lg:text-16 text-12 w-114 h-100 rounded font-title cursor-pointer text-center flex flex-col gap-8 justify-between items-center lg:p-20 p-10 relative overflow-hidden',
-          !selector && 'transition hover:scale-105',
-          isSelected && !overlay
-            ? 'bg-yellow text-black transition hover:shadow-custom-yellow'
-            : 'bg-black text-yellow border border-yellow hover:bg-yellow hover:text-black ',
-
-          overlay && 'border border-yellow ',
-        )}
+        className={tileClasses}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={onClick}
       >
-        {badgeText && (
-          <Badge text={badgeText} isHighlighted={isHovered || isSelected} />
-        )}
+        {badgeText && <Badge text={badgeText} isHighlighted={isHighlighted} />}
         {title}
         {Icon && (
           <Icon
-            fill={clsx(
-              isSelected
-                ? 'black'
-                : isHovered
-                  ? 'black'
-                  : 'rgba(255, 234, 0, 1)',
-            )}
+            data-testid='tile-icon'
+            fill={clsx(isHighlighted ? 'black' : 'rgba(255, 234, 0, 1)')}
           />
         )}
-        <span
-          className={clsx(
-            isSelected || isHovered ? 'text-black' : 'text-white',
-          )}
-        >
+        <span className={clsx(isHighlighted ? 'text-black' : 'text-white')}>
           {subtitle}
         </span>
         {tooltip && (
@@ -79,7 +69,7 @@ export const Tile = ({
             <span className='absolute top-5 right-8'>
               <Alert
                 className='w-20'
-                fill={isSelected || isHovered ? '#000000' : '#FFEA00'}
+                fill={isHighlighted ? '#000000' : '#FFEA00'}
               />
             </span>
           </Tooltip>
@@ -88,3 +78,11 @@ export const Tile = ({
     </div>
   )
 }
+
+const baseTileClasses =
+  'lg:w-168 lg:h-140 lg:text-16 text-12 w-114 h-100 rounded font-title cursor-pointer text-center flex flex-col gap-8 justify-between items-center lg:p-20 p-10 relative overflow-hidden'
+const selectedTileClasses =
+  'bg-yellow text-black transition hover:shadow-custom-yellow'
+const notSelectedTileClasses =
+  'bg-black text-yellow border border-yellow hover:bg-yellow hover:text-black'
+const overlayClasses = 'border border-yellow'

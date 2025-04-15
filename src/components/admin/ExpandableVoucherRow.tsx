@@ -2,7 +2,7 @@ import { FormControl, FormLabel, Select } from '@chakra-ui/react'
 import { AdminButton } from 'components/shared/AdminButton'
 import { DateInput } from 'components/shared/form/DateInput'
 import { isSameDay, parse } from 'date-fns'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useEffect, useState } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import {

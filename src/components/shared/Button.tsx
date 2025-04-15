@@ -67,7 +67,8 @@ export const Button = ({
             : 'grow sm:grow-0 w-100 lg:w-120',
           className,
         )}
-        onClick={onClick && !disabled ? onClick : undefined}
+        disabled={disabled}
+        onClick={onClick}
       >
         {icon && (
           <img

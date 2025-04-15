@@ -1,6 +1,6 @@
 import { SkeletonPage } from 'components/shared/loading/SkeletonPage'
 import { LessonType } from 'components/voucher-purchase-form/LessonsType'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useQuery } from 'react-query'
 import { Lesson } from 'types/types'
 import { fetchLessonConfiguration } from 'utils/requests'

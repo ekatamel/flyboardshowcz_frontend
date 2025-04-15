@@ -3,11 +3,11 @@ import { useFormikContext } from 'formik'
 import { useContext } from 'react'
 import { useMutation } from 'react-query'
 import { Order, OrderPostType, PaymentOrigin } from 'types/types'
+import { sendPDFs } from 'utils/pdf-utils'
 import { createOrder } from 'utils/requests'
-import { sendPDFs } from 'utils/utils'
 
 import { useGroupedProducts } from './useGroupedProducts'
-import { useToastMessage } from './useToastMesage'
+import { useToastMessage } from './useToastMessage'
 
 export const useCreateOrder = () => {
   const { showToast } = useToastMessage()

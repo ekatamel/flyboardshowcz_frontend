@@ -1,4 +1,4 @@
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import {
   createContext,
   ReactNode,

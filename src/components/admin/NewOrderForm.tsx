@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { AdminButton } from 'components/shared/AdminButton'
 import { format, parseISO } from 'date-fns'
 import { Form, useFormikContext } from 'formik'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import {
   AdminOrder,

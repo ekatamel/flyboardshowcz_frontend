@@ -9,7 +9,7 @@ import {
 import { AdminButton } from 'components/shared/AdminButton'
 import { InputError } from 'components/shared/error/InputError'
 import { Field, Form, Formik } from 'formik'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useMutation, useQueryClient } from 'react-query'
 import { DiscountType, Response } from 'types/types'
 import { getDiscountFormFields } from 'utils/form-config'

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useFormikContext } from 'formik'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'

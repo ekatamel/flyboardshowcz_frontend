@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 
 interface TextInputProps {
+  id?: string
   value: string
   setValue: (value: string) => void
   placeholder?: string
@@ -10,6 +11,7 @@ interface TextInputProps {
 }
 
 export const TextInput = ({
+  id,
   value,
   setValue,
   placeholder,
@@ -19,6 +21,7 @@ export const TextInput = ({
 }: TextInputProps) => {
   return (
     <input
+      id={id}
       type={type}
       disabled={disabled}
       value={value}

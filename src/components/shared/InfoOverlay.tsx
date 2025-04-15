@@ -8,24 +8,18 @@ import { Alert } from 'assets/images/Alert'
 import { isMobile } from 'react-device-detect'
 
 interface InfoOverlayProps {
-  label: string | JSX.Element
-  content?: JSX.Element
+  label: string | JSX.Element | null
   fill?: string
-  showLabel?: boolean
+  children?: JSX.Element
 }
 
-export const InfoOverlay = ({
-  label,
-  content,
-  fill,
-  showLabel = true,
-}: InfoOverlayProps) => {
-  if (showLabel === false) return <>{content}</>
+export const InfoOverlay = ({ label, fill, children }: InfoOverlayProps) => {
+  if (!label) return <>{children}</>
   return (
     <Popover trigger={isMobile ? 'click' : 'hover'}>
       <PopoverTrigger>
         <span>
-          {content || (
+          {children || (
             <Alert
               className='w-16 lg:w-20 cursor-pointer'
               fill={fill ?? '#FFEA00'}

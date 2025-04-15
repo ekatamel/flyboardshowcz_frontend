@@ -2,12 +2,12 @@ interface IconProps {
   fill?: string
 }
 
-export const Sunglasses = ({ fill }: IconProps) => {
+export const Sunglasses = ({ fill, ...otherProps }: IconProps) => {
   return (
     <svg
+      {...otherProps}
       height='32px'
       viewBox='0 0 1328 841'
-      fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
       <path

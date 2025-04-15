@@ -46,23 +46,23 @@ export const QuantitySelector = ({
 
       <InfoOverlay
         label={
-          <p className='font-body text-12 lg:text-14 normal-case tracking-normal tooltip'>
-            {disabledMessage}
-          </p>
+          isIncreaseDisabled && !isDecreaseDisabled ? (
+            <p className='font-body text-12 lg:text-14 normal-case tracking-normal tooltip'>
+              {disabledMessage}
+            </p>
+          ) : null
         }
-        content={
-          <div>
-            <Plus
-              disabled={isIncreaseDisabled}
-              onClick={() => {
-                setAmount(amount + 1)
-                onAmountIncrease()
-              }}
-            />
-          </div>
-        }
-        showLabel={isIncreaseDisabled && !isDecreaseDisabled}
-      />
+      >
+        <div>
+          <Plus
+            disabled={isIncreaseDisabled}
+            onClick={() => {
+              setAmount(amount + 1)
+              onAmountIncrease()
+            }}
+          />
+        </div>
+      </InfoOverlay>
     </div>
   )
 }

@@ -1,8 +1,9 @@
+import { TextInput } from 'components/shared/form/TextInput'
+import { InfoOverlay } from 'components/shared/InfoOverlay'
+import { useFormikContext } from 'formik'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useState } from 'react'
 import { useMutation } from 'react-query'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import { Order, Response } from 'types/types'
 import { validateDiscountCode } from 'utils/requests'
 import {
@@ -13,19 +14,12 @@ import {
 
 import { Button } from '../shared/Button'
 
-import { InfoOverlay } from 'components/shared/InfoOverlay'
-import { TextInput } from 'components/shared/form/TextInput'
-import { useFormikContext } from 'formik'
-import { useToastMessage } from 'hooks/useToastMesage'
-
 export const Discount = () => {
   const { showToast } = useToastMessage()
 
-  const { setFieldValue, setValues } = useFormikContext<Order>()
+  const { values, setFieldValue, setValues } = useFormikContext<Order>()
 
   const [value, setValue] = useState('')
-
-  const { values } = useFormikContext<Order>()
 
   const { mutate: validateDiscount } = useMutation(validateDiscountCode, {
     onSuccess: data => {
@@ -76,26 +70,30 @@ export const Discount = () => {
 
   return (
     <div className='flex w-full items-center justify-center gap-20'>
-      <label className='text-textGray font-title label text-16 whitespace-nowrap'>
+      <label
+        className='text-textGray font-title label text-16 whitespace-nowrap'
+        htmlFor='discount'
+      >
         Slevový kód
       </label>
 
       <InfoOverlay
         label={
-          <p className='font-body text-12 lg:text-14 normal-case tracking-normal'>
-            {toastMessage}
-          </p>
+          !isDiscountCodeApplicable ? (
+            <p className='font-body text-12 lg:text-14 normal-case tracking-normal'>
+              {toastMessage}
+            </p>
+          ) : null
         }
-        showLabel={!isDiscountCodeApplicable}
-        content={
-          <TextInput
-            value={value}
-            setValue={setValue}
-            disabled={!isDiscountCodeApplicable}
-            className='w-120'
-          />
-        }
-      />
+      >
+        <TextInput
+          id='discount'
+          value={value}
+          setValue={setValue}
+          disabled={!isDiscountCodeApplicable}
+          className='w-120'
+        />
+      </InfoOverlay>
 
       {isDiscountApplied ? (
         <Button

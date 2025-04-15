@@ -193,7 +193,7 @@ export const VoucherNameRow = ({ lesson, index }: VoucherNameRowProps) => {
       key={index}
       data={data}
       className={'text-16 lg:text-20 mb-10'}
-      padding={'12px 0px'}
+      padding={'14px 0px'}
     />
   )
 }

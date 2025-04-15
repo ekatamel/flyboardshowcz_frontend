@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { AdminTable } from 'components/shared/table/AdminTable'
 import { Formik } from 'formik'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { Lesson, Merchant } from 'types/types'

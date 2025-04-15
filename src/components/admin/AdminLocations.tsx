@@ -1,5 +1,5 @@
 import { AdminTable } from 'components/shared/table/AdminTable'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useQuery, useQueryClient } from 'react-query'
 import { Branch } from 'types/types'
 import { fetchBranches, updateLocation } from 'utils/requests'

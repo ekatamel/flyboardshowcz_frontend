@@ -12,7 +12,7 @@ import { FormNavigationContext as VoucherPurchaseContext } from 'context/Voucher
 import { useFormikContext } from 'formik'
 import { usePriceTotals } from 'hooks/usePriceTotals'
 import { usePrompt } from 'hooks/usePrompt'
-import { useToastMessage } from 'hooks/useToastMesage'
+import { useToastMessage } from 'hooks/useToastMessage'
 import { useContext, useEffect, useState } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { useMutation } from 'react-query'
