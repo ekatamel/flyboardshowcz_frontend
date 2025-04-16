@@ -22,5 +22,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/components", "custom.d.ts", "declarations.d.ts"]
+  "include": [
+    "src",
+    "src/components",
+    "custom.d.ts",
+    "declarations.d.ts",
+    "cypress"
+  ]
 }

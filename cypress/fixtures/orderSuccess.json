@@ -1,0 +1,49 @@
+{
+  "id": 856,
+  "payment_info": {
+    "account_iban": "CZ1255000000005879131003",
+    "amount": "3197.10",
+    "message": "FBS Ekaterina Melnichuk",
+    "payment_type": "IP",
+    "qr_code": "iVBORw0KGgoAAAANSUhEUgAAATsAAAE7AQAAAACKpxtqAAACOElEQVR42u1aMXKDQAwUceGSJ/AUngZPu6fwhJQuGBRpV4dJlyKTIiyFz8aqdqSVdnXmP3s2U6ACFajA3w38tHyecSz2eNnUFryYV9/xZcjAD/vh868CAc8UHzvgOR7xtVkemy3D/kwMbw9Ps0AiD+TLvB4WuLSEJzETPICHuFSNjVsWl+A54QEZRfZkEiUgguc790y+DjxM3HOBpzrXRLa5Hupcly4/O8kYncsjly7/3Tl7ZrfsVSiuJJ2ePR4MrbmH9IuD5ZSNPVA6YkiMl67O5WDhBGRkAxvrVzaw23eulWoifr34GmBh/Ll99qSMQOdyr3lw4PgDJtLcg16VuMSIgyQC6ZB7IrPUudbiHhTXDO4hNWfnuntxkX6zv6OOmEshSQseaa6lpmamjdPXoKhooubkZM7Jyclg6E5B0+3hyaqik2EcCzkdzqlMwUt35x7YhFTs4OR4PzqFuzdT9niprKPPPV16dWV6c83FAdn68FzSC3OPy9AA90RxHVFVUWpVXNXfJSogHEAzSCKAxYWFuAeS9A3IVgsuEJLMVHjN6FyN3ONrOfKluQYp9jN74PcUQ9uDNr2oeWCNlagosABPk6FhtR71Dg81V/6vxl4PREW5P8BlrZRS9iT3nOY7ksj6KK1FTt+Snl7zwbGw1hfaVNQVhESJ20Abi3tMdth5BaHvJqzXGD0ywVMavbuoBr+H9oa4p26Hzd2Kf3vN53UW3dAgSnWxBybzbhIVupmqQAUq8M8DvwDTyQ8FgVbprAAAAABJRU5ErkJggg==",
+    "variable_symbol": "2000856"
+  },
+  "vouchers": [
+    {
+      "code": "FBS1006409350",
+      "created_date": "2025-04-16T16:28:36.246721",
+      "extras": [
+        {
+          "id": 3,
+          "is_order_paid": false,
+          "name": "Z\u00e1b\u011bry z lekce a selfie ty\u010d Insta 360",
+          "type": "video"
+        }
+      ],
+      "free_min_generated": false,
+      "id": 1421,
+      "length": 35,
+      "lesson_length": 15,
+      "lesson_type_code": 1006,
+      "lesson_type_name": "Doporu\u010den\u00e1 lekce",
+      "merch": [
+        {
+          "id": 1,
+          "is_order_paid": false,
+          "name": "Slune\u010dn\u00ed br\u00fdle",
+          "quantity": 1
+        }
+      ],
+      "merchant_id": 1,
+      "message": null,
+      "order_id": 856,
+      "price": 1799.1,
+      "redeemed_date": null,
+      "reservation": {},
+      "status": "Waiting_For_Payment",
+      "used_by": null,
+      "valid_until": "2025-06-01",
+      "voucher_name": "Pro mil\u00e1\u010dka"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "available_sizes": {},
+    "id": 1,
+    "name": "Sluneční brýle",
+    "price": 399,
+    "product_code_stripe": "prod_Pkr65xO2p6wIBj"
+  },
+  {
+    "available_sizes": {},
+    "id": 2,
+    "name": "Létající Talíř",
+    "price": 399,
+    "product_code_stripe": "prod_Pkr6ckYR4krRev"
+  },
+  {
+    "available_sizes": {
+      "1": "36-42",
+      "2": "43-46"
+    },
+    "id": 3,
+    "name": "Ponožky",
+    "price": 399,
+    "product_code_stripe": "prod_Pkr6Gf8sY4squI"
+  },
+  {
+    "available_sizes": {
+      "1": "S",
+      "2": "M",
+      "3": "L",
+      "4": "XL",
+      "5": "XXL"
+    },
+    "id": 6,
+    "name": "Mikina FBS",
+    "price": 1999,
+    "product_code_stripe": "prod_Pkr6YNqIjG7vzk"
+  }
+]

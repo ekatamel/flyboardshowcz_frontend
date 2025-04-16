@@ -19,6 +19,7 @@
         "prettier",
         "import",
         "testing-library",
+        "cypress",
       ],
       "settings": {
         "react": {
@@ -35,6 +36,7 @@
         "plugin:testing-library/react",
       ],
       "rules": {
+        "cypress/unsafe-to-chain-command": "error",
         "prettier/prettier": "warn",
         "no-console": "warn",
         "react/prop-types": "off",

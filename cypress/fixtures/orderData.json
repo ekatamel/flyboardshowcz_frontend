@@ -1,0 +1,42 @@
+{
+  "order_data": {
+    "order_type": "voucher",
+    "customer": {
+      "first_name": "Ekaterina",
+      "last_name": "Melnichuk",
+      "email": "katerinka.melnichuk@gmail.com",
+      "phone_number": "+420775992148",
+      "know_from": "Facebook",
+      "gdpr": true
+    },
+    "discounts": {
+      "discount_type": "",
+      "discount_id": 0
+    },
+    "merch": [
+      {
+        "id": 1,
+        "discountedPrice": 399,
+        "name": "Sluneční brýle",
+        "quantity": 1
+      }
+    ],
+    "message": "",
+    "lessonType": [
+      {
+        "id": 6,
+        "code": "1006",
+        "price": 1999,
+        "discountedPrice": 1799.1,
+        "discount": 10,
+        "voucherName": "Pro miláčka",
+        "extras": {
+          "id": 3,
+          "discountedPrice": 999,
+          "quantity": 1,
+          "name": "Záběry z lekce a selfie tyč Insta 360"
+        }
+      }
+    ]
+  }
+}

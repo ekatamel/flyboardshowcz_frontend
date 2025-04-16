@@ -42,7 +42,7 @@ export const Tile = ({
   const isHighlighted = isHovered || isSelected
 
   return (
-    <div className='relative'>
+    <div className='relative hover:text-black text-white' data-testid='tile'>
       {selector}
       <div
         className={tileClasses}
@@ -58,19 +58,14 @@ export const Tile = ({
             fill={clsx(isHighlighted ? 'black' : 'rgba(255, 234, 0, 1)')}
           />
         )}
-        <span className={clsx(isHighlighted ? 'text-black' : 'text-white')}>
-          {subtitle}
-        </span>
+        <span>{subtitle}</span>
         {tooltip && (
           <Tooltip
             display={{ base: 'none', lg: 'block' }}
             label={<p>{tooltip}</p>}
           >
             <span className='absolute top-5 right-8'>
-              <Alert
-                className='w-20'
-                fill={isHighlighted ? '#000000' : '#FFEA00'}
-              />
+              <Alert fill={isHighlighted ? '#000000' : '#FFEA00'} />
             </span>
           </Tooltip>
         )}

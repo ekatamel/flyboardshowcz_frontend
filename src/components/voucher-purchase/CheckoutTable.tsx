@@ -35,7 +35,7 @@ export const CheckoutTable = ({
   const { currentStepIndex } = useContext(FormNavigationContext)
 
   return (
-    <TableContainer className='box-border'>
+    <TableContainer className='box-border' data-cy='checkout-table'>
       <Table>
         {isHeader && (
           <TableHead data={['Lekce', 'Množství', 'Cena']} padding={padding} />

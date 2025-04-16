@@ -87,11 +87,17 @@ export const ContentBox = ({
         {isBestseller && (
           <Badge text={'Bestseller'} isHighlighted={isSelected} />
         )}
-        <h2 className='text-yellow font-title xl:text-heading text-26 leading-tight text-center '>
+        <h2
+          className='text-yellow font-title xl:text-heading text-26 leading-tight text-center'
+          data-cy={`lesson-title-${lesson.id}`}
+        >
           {lessonTypeName}
         </h2>
         {product && (
-          <h3 className='text-white xl:text-subheading text-16 text-center font-title xl:mb-8 mb-8'>
+          <h3
+            className='text-white xl:text-subheading text-16 text-center font-title xl:mb-8 mb-8'
+            data-cy={`lesson-min-${lesson.id}`}
+          >
             {product.length} min
           </h3>
         )}
@@ -118,7 +124,9 @@ export const ContentBox = ({
               <span className='font-title absolute text-12 -top-5 left-4'>
                 Akce -{discount}%
               </span>
-              <span>{(discountedPrice ?? price).toFixed(0)},-</span>
+              <span data-cy={`lesson-price-${lesson.id}`}>
+                {(discountedPrice ?? price).toFixed(0)},-
+              </span>
             </div>
           )}
         </div>

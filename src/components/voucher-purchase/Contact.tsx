@@ -56,6 +56,7 @@ export const Contact = () => {
                 </label>
                 {field.type === 'text' && (
                   <Field
+                    data-cy={field.name}
                     className='max-w-169 block h-44 w-full rounded border border-white bg-black px-10 font-body text-16 text-white focus:border-yellow focus:outline-none'
                     name={`customer.${field.name}`}
                     placeholder={field.placeholder}
@@ -63,6 +64,7 @@ export const Contact = () => {
                 )}
                 {field.type === 'select' && (
                   <Field
+                    data-cy={field.name}
                     className='max-w-169 block h-44 w-full rounded border border-white bg-black px-8 font-body text-16 text-white focus:border-yellow focus:outline-none'
                     name={`customer.${field.name}`}
                     as={field.type}

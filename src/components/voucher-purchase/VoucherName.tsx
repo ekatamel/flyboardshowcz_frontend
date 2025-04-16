@@ -172,6 +172,7 @@ export const VoucherNameRow = ({ lesson, index }: VoucherNameRowProps) => {
     </div>,
     <div className='relative' key='customerName'>
       <Field
+        data-cy={`voucher-name-${index}`}
         className='max-w-169 block h-34 w-full rounded border border-white bg-black px-8 font-body text-16 text-white focus:border-yellow focus:outline-none lg:h-44'
         name={`lessonType[${index}].voucherName`}
         placeholder='Petr Novák'

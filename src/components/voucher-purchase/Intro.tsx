@@ -18,7 +18,10 @@ export const Intro = () => {
       noNavigation={true}
       noProgress={true}
     >
-      <p className='mb-10 mt-20 text-center text-14 font-bold text-white xl:text-16'>
+      <p
+        className='mb-10 mt-20 text-center text-14 font-bold text-white xl:text-16'
+        data-cy='subtitle'
+      >
         Lekce na Flyboardu s profesionálními letci
       </p>
       <div className='mx-auto mt-20 w-fit'>

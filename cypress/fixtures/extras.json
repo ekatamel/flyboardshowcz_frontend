@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Záběry točené z vodního skútru",
+    "price": 499,
+    "product_code_stripe": "prod_Pkr6puPo5GYesj",
+    "type": "video"
+  },
+  {
+    "id": 3,
+    "name": "Záběry z lekce a selfie tyč Insta 360",
+    "price": 999,
+    "product_code_stripe": "prod_Pkr5Q9qGEVH9J9",
+    "type": "video"
+  }
+]

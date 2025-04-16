@@ -83,6 +83,7 @@ export const LessonCarousel = ({
           key={lesson.id}
           virtualIndex={index}
           onClick={() => swiper.slideTo(index)}
+          data-cy={`lesson-${lesson.id}`}
         >
           <ContentBox
             lesson={lesson}

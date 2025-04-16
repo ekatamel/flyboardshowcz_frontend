@@ -158,13 +158,15 @@ const BankTransferDetails = () => {
       <p className='text-24'>Pro platbu bankovním převodem</p>
       <div>
         <span>č. účtu: </span>
-        <span className='text-yellow'>
+        <span className='text-yellow' data-cy='account-number'>
           {process.env.REACT_APP_BANK_ACOUNT_NUMBER}
         </span>
       </div>
       <div>
         <span>Variabilní symbol: </span>
-        <span className='text-yellow'>{values.variableSymbol}</span>
+        <span className='text-yellow' data-cy='variable-symbol'>
+          {values.variableSymbol}
+        </span>
       </div>
       <div>
         <span>Zpráva pro příjemce: </span>
@@ -172,10 +174,17 @@ const BankTransferDetails = () => {
       </div>
       <div>
         <span>Částka: </span>
-        <span className='text-yellow'>{totalDiscountedPrice},- CZK</span>
+        <span className='text-yellow' data-cy='amount'>
+          {totalDiscountedPrice},- CZK
+        </span>
       </div>
       {base64String && (
-        <img src={base64String} alt='QR code' className='h-150 w-150 mt-20' />
+        <img
+          src={base64String}
+          alt='QR code'
+          className='h-150 w-150 mt-20'
+          data-cy='qr-code'
+        />
       )}
     </div>
   )

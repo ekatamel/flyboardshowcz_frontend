@@ -31,6 +31,7 @@ export const QuantitySelector = ({
       {amount !== 0 && (
         <>
           <Minus
+            data-cy='decrement'
             disabled={isDecreaseDisabled}
             onClick={() => {
               if (amount !== 0) setAmount(amount - 1)
@@ -38,7 +39,10 @@ export const QuantitySelector = ({
             }}
           />
 
-          <span className='text-white font-title text-24 lg:text-heading'>
+          <span
+            className='text-white font-title text-24 lg:text-heading'
+            data-cy='amount'
+          >
             {amount}
           </span>
         </>
@@ -53,8 +57,9 @@ export const QuantitySelector = ({
           ) : null
         }
       >
-        <div>
+        <div data-cy='increment'>
           <Plus
+            data-cy='increment'
             disabled={isIncreaseDisabled}
             onClick={() => {
               setAmount(amount + 1)

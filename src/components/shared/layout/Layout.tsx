@@ -147,7 +147,10 @@ export const Layout = ({
                   endColor='gray.1000'
                 />
               ) : (
-                <h1 className='text-white uppercase font-title xl:text-52 text-30'>
+                <h1
+                  className='text-white uppercase font-title xl:text-52 text-30'
+                  data-cy='title'
+                >
                   {title}
                 </h1>
               )}

@@ -1,0 +1,138 @@
+[
+  {
+    "active": true,
+    "bullet_points_description": {
+      "b1": "prodloužená lekce - 40 minut",
+      "b2": "FBS čepice a mikina",
+      "b3": "video záznam z lekce",
+      "b4": "dárkový voucher",
+      "b5": "kopa vzpomínek a zábavy"
+    },
+    "discount": 10,
+    "discounted_price": 4949.1,
+    "extras": [
+      {
+        "id": 2,
+        "name": "Záběry točené z vodního skútru - ZDARMA",
+        "price": 0,
+        "product_code_stripe": "prod_Pkr6XVDCtEtLuh",
+        "type": "video"
+      }
+    ],
+    "id": 10,
+    "lesson_type_code": "1010",
+    "lesson_type_name": "Flyboardový dárkový set",
+    "merch": [
+      {
+        "available_sizes": {
+          "1": "S",
+          "2": "M",
+          "3": "L",
+          "4": "XL",
+          "5": "XXL"
+        },
+        "id": 8,
+        "name": "Mikina FBS - ZDARMA",
+        "price": 0,
+        "product_code_stripe": "prod_Pkr5QBwjUEWFiG"
+      },
+      {
+        "available_sizes": {},
+        "id": 9,
+        "name": "Čepice - ZDARMA",
+        "price": 0,
+        "product_code_stripe": "prod_Pkr5DFiH0uNyxR"
+      }
+    ],
+    "price": 5499,
+    "product": {
+      "description": "NaN",
+      "id": 5,
+      "length": 40,
+      "lesson_length": 20,
+      "merchant_id": 1,
+      "product_code": "10005",
+      "product_name": "FLYBOARDOVÝ DÁRKOVÝ SET",
+      "timeslot_length": 4,
+      "valid_from": "2024-04-13",
+      "valid_to": null
+    },
+    "product_code_stripe": "prod_Pkr7iHvivvq9D0",
+    "showtocustomer_from": "2024-09-30",
+    "showtocustomer_to": "2025-05-23",
+    "top_level_description": "Zážitek, na který opravdu nikdy nezapomenete",
+    "type_lesson": null,
+    "validity_voucher_from": "2024-09-30",
+    "validity_voucher_to": "2025-06-01"
+  },
+  {
+    "active": true,
+    "bullet_points_description": {
+      "b1": "120 minutový zážitek",
+      "b2": "osobní lekce s Petrem Civínem (4. nejlepší letec světa)",
+      "b3": "videorozbor mezi jednotlivými lety",
+      "b4": "VIP servis"
+    },
+    "discount": 10,
+    "discounted_price": 900,
+    "extras": [],
+    "id": 12,
+    "lesson_type_code": "1012",
+    "lesson_type_name": "VIP lekce s Petrem Civínem",
+    "merch": [],
+    "price": 1000,
+    "product": {
+      "description": "NaN",
+      "id": 6,
+      "length": 120,
+      "lesson_length": 50,
+      "merchant_id": 1,
+      "product_code": "10006",
+      "product_name": "VIP lekce s Petrem Civínem",
+      "timeslot_length": 10,
+      "valid_from": "2024-04-13",
+      "valid_to": null
+    },
+    "product_code_stripe": "prod_Pkr6LKlD26iiSs",
+    "showtocustomer_from": "2024-09-30",
+    "showtocustomer_to": "2025-05-23",
+    "top_level_description": "Speciální kulatiny, výročí či prostě náročnější potřeba?",
+    "type_lesson": null,
+    "validity_voucher_from": "2024-09-30",
+    "validity_voucher_to": "2025-06-01"
+  },
+  {
+    "active": true,
+    "bullet_points_description": {
+      "b1": "35 minutový zážitek (školení, oblékání, létání)",
+      "b2": "školení komplexnějších triků"
+    },
+    "discount": 10,
+    "discounted_price": 1799.1,
+    "extras": [],
+    "id": 6,
+    "lesson_type_code": "1006",
+    "lesson_type_name": "Doporučená lekce",
+    "merch": [],
+    "price": 1999,
+    "product": {
+      "description": "NaN",
+      "id": 3,
+      "length": 35,
+      "lesson_length": 15,
+      "merchant_id": 1,
+      "product_code": "10003",
+      "product_name": "DOPORUČENÁ LEKCE NA FLYBOARDU",
+      "timeslot_length": 3,
+      "valid_from": "2024-04-13",
+      "valid_to": null
+    },
+    "product_code_stripe": "prod_PkrAcKsKekVBLp",
+    "showtocustomer_from": "2024-09-30",
+    "showtocustomer_to": "2025-05-23",
+    "top_level_description": "Ideální poměr cena vs. výkon. Cílem lekce je bezpečné ovládnutí prkna a základy triků (zatáčky, spin, delfín, superman a pro nejšikovnější i salto)",
+    "type_lesson": null,
+    "validity_voucher_from": "2024-09-30",
+    "validity_voucher_to": "2025-06-01"
+  }
+]
